@@ -7,6 +7,12 @@
             $(function() {
                 var socket = io();
             })
+            $('form').submit(function(){
+                var msg = $('msg').val;
+                socket.emit('message', msg);
+                $('#msg').val('');
+                return false;
+            });
         </script>
     </head>
     <body>
